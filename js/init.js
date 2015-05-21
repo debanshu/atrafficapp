@@ -52,7 +52,8 @@
         
         '<a href="#services" class="scrolly">Services</a>' +
         '<a href="#report" class="scrolly">Report a Crime</a>' + 
-        '<a href="https://delhitrafficpolice.nic.in/wp-content/uploads/2014/11/motor-vehicles-act-1988.pdf" class="scrolly">Motor Vehicle Act</a>'
+        '<a href="https://delhitrafficpolice.nic.in/wp-content/uploads/2014/11/motor-vehicles-act-1988.pdf" class="scrolly">Motor Vehicle Act</a>' + 
+        '<div class="popform"><a href="aboutUs.jpg" class="scrolly" >About Us</a></div>'
       }
     }
   }
