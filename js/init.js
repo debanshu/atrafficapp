@@ -225,7 +225,7 @@
 					id:         child.id,
 					value:      circleValues[i-1][0],
 					maxValue:	circleValues[i-1][1],
-					radius:     100,
+					radius:     getWidth(),
 					width:      10,
 					colors:     colors,
 					duration:	2000
