@@ -47,11 +47,12 @@
         animation: 'pushX',
         clickToHide: true,
         html: '<a href="#header" class="scrolly">Home</a>' +
-        '<a href="#banner" class="scrolly">Quick Start</a>' +
-        '<a href="#">Login</a>' +
-        '<a href="#">Register</a>' +
+        '<div class="popform"><a href="register/index.html" class="scrolly" data-poptrox="iframe,550x700">Quick Start</a></div>' +
+        
+        
         '<a href="#services" class="scrolly">Services</a>' +
-        '<a href="#report" class="scrolly">Report a Crime</a>'
+        '<a href="#report" class="scrolly">Report a Crime</a>' + 
+        '<a href="https://delhitrafficpolice.nic.in/wp-content/uploads/2014/11/motor-vehicles-act-1988.pdf" class="scrolly">Motor Vehicle Act</a>'
       }
     }
   }
@@ -193,6 +194,63 @@
 				windowMargin: 10,
 				usePopupNav: true
 			});
+			
+			$('.popform').poptrox({
+				useBodyOverflow: false,
+				usePopupEasyClose: false,
+				overlayColor: '#0a1919',
+				overlayOpacity: (skel.vars.IEVersion < 9 ? 0 : 0.75),
+				usePopupDefaultStyling: true,
+				usePopupCaption: false,
+				popupLoaderText: '',
+				windowMargin: 10,
+				usePopupNav: true
+			});
+			
+		//poptrox for forms
+		
+		//animated percentages
+		var colors = [
+				'#444', '#49bf9d'
+			],
+			circles = [],
+			circlesText = ["Days to License Renewal!", "Karma Points Earned", "Insurance Renewal", "PUC Renewal"];
+			circleValues = [ [200,800], [3000,10000] , [3000,10000], [3000,10000]];
+
+		for (var i = 1; i <= 4; i++) {
+			var child = document.getElementById('circles-' + i),
+				percentage = 31.42 + (i * 9.84),
+				
+				circle = Circles.create({
+					id:         child.id,
+					value:      circleValues[i-1][0],
+					maxValue:	circleValues[i-1][1],
+					radius:     100,
+					width:      10,
+					colors:     colors,
+					duration:	2000
+					
+					
+				});
+
+			circles.push(circle);
+			var c = child.firstElementChild;
+			c.dataset.name = circlesText[i-1];
+			console.log(circle);
+		}
+
+		window.onresize = function(e) {
+			for (var i = 0; i < circles.length; i++) {
+				circles[i].updateRadius(getWidth());
+				var c = document.getElementById('circles-' + (i+1)).firstElementChild;
+				c.dataset.name = circlesText[i];
+			}
+		};
+
+		function getWidth() {
+			return window.innerWidth / 20;
+		}
+		
 
 	});
 
