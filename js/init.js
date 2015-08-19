@@ -34,7 +34,7 @@
         position: 'top-left',
         width: '100%',
         height: 44,
-        html: '<div class="toggle" data-action="toggleLayer" data-args="navPanel">&equiv;</div>' +
+        html: '<div class="toggle" id="swipe-click" data-action="toggleLayer" data-args="navPanel">&equiv;</div>' +
         '<span class="title">A TRAFFIC APP</span>'
       },
       navPanel: {
@@ -210,6 +210,7 @@
 			
 		//poptrox for forms
 		
+		/*
 		//animated percentages
 		var colors = [
 				'#444', '#49bf9d'
@@ -251,6 +252,15 @@
 		function getWidth() {
 			return window.innerWidth / 20;
 		}
+		* */
+		
+		$("body").swipe( {
+        //Generic swipe handler for all directions
+        swipeRight:function(event, direction, distance, duration, fingerCount, fingerData) {
+          //alert("your swiped"); 
+          $("#swipe-click").click();
+        }
+      });
 		
 
 	});
